@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<title>결제창 호출</title>
+		<script src="https://js.tosspayments.com/v2/standard"></script>
+	</head>
+	<body>
+
+		<script th:inline="javascript">
+			window.addEventListener('load',requestPayment);
+      const clientKey = [[${paymentRequest.apiKey}]];
+      const amount = {
+        currency: [[${paymentRequest.currency}]],
+        value: [[${paymentRequest.amount}]],
+      };
+
+      const customerKey = [[${paymentRequest.customerKey}]];
+      const tossPayments = TossPayments(clientKey);
+      const payment = tossPayments.payment({customerKey});
+
+      async function requestPayment() {
+        await payment.requestPayment({
+          method: 'CARD',
+          amount,
+          orderId: [[${paymentRequest.orderId}]],
+          orderName: [[${paymentRequest.orderName}]],
+          successUrl: `${window.location.origin}/v1/payments/success`,
+          failUrl: `${window.location.origin}/v1/payments/failure`,
+          card: {
+            useEscrow: false,
+            flowMode: 'DEFAULT',
+            useCardPoint: false,
+            useAppCardOnly: false,
+          },
+        });
+      }
+
+		</script>
+	</body>
+</html>

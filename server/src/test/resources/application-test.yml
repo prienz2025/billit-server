@@ -1,0 +1,61 @@
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        highlight_sql: true
+        connection:
+          characterEncoding: utf-8
+          useUnicode: true
+          CharSet: utf-8
+    database: mysql
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: test@test.com
+    password: asfduihziubau4thp98zxyfvaewbgkajsbld
+    properties:
+      mail:
+        smtp:
+          debug: true
+          auth: true
+          connectiontimeout: 5000
+          starttls:
+            enable: true
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:testpassword}
+
+  cloud:
+    aws:
+      region:
+        static: ap-northeast-2
+      s3:
+        bucket: this-is-not-real-bucket
+      credentials:
+        access-key: aDHbQDVYIm4zT9BEODxZPf6zg59qRzBmdpwL4QVF/OOFTJ0kRBH0yoIGCKefn6Ta7djOZt0YloPQmUbgZwMtQ==
+        secret-key: ELwfo1GKsusD3LJpwPPUZfI0tGtwMHGAn+CnUGhzPNOw74r7zSHKZwI605spkm/NfhIdKe5HKeI68hRKQVpC67wM3lhZ8t9rZa8WuOEK1VE=
+
+
+jwt:
+  secret: Td1Bn+vflHJE40VjINaGpgisHP0MBdY5oQ+aZdJy9uWLNlQinfTG983inwWWKBP5lfRdmVIz768CU6DIt7oFHJWFP8r1p3JMHhkwb1UhaXriwRmrDRNZ+u3cqnYRvH3LqEY1hI7ANQlIU6Wxt5mH8vPsagzBVUPW6pcAThVMyDY=
+
+bannabe:
+  default-profile-image: default.png
+  payment:
+    secret-key: asg8y34tacvhbalsfguhafg==
+    api-key: idfbhzuh3498tyzlxjb
+
+encrypt:
+  password: a;sldfhz9x8bvy3tqotazosd8fgvq345tyosd7

@@ -1,0 +1,35 @@
+# Build Application
+FROM eclipse-temurin:17-jdk AS build
+
+# Set working Directory
+WORKDIR /app
+
+# Copy gradle wrapper & dependency-related files
+COPY ./gradlew .
+COPY ./gradle ./gradle
+COPY ./build.gradle .
+COPY ./settings.gradle .
+
+# Make gradlew executable
+RUN chmod +x ./gradlew
+
+# Pre-download Gradle dependencies to optimize caching
+RUN ./gradlew dependencies
+
+# Copy application source code
+COPY ./src ./src
+
+# Build application without tests
+RUN ./gradlew build -x test --no-scan
+
+# Create image
+FROM eclipse-temurin:17-jdk-alpine
+
+# Copy Jar file from the builder stage
+COPY --from=build /app/build/libs/*.jar app.jar
+
+# Expose Application Port
+EXPOSE 8080
+
+# Run Application
+ENTRYPOINT ["java","-jar","/app.jar"]

@@ -1,0 +1,12 @@
+name: Push Workflow (Build & Test)
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    permissions:
+      contents: read

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<title>[Bannabe] 이메일 인증코드</title>
+	</head>
+	<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+
+		<div style="max-width: 600px; margin: 40px auto; background: #ffffff; padding: 20px; border-radius: 8px;
+		            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); text-align: center;">
+
+			<div style="font-size: 24px; font-weight: bold; text-align: start; color: #333;">
+				[Bannabe] 이메일 인증코드
+			</div>
+
+			<hr style="margin: 20px 0; border: 0; height: 1px; background: #ddd;">
+
+			<div style="font-size: 16px; color: #555; margin-top: 30px; line-height: 1.5;">
+				안녕하세요. 반나비입니다.<br>
+				비밀번호를 찾기 위한 인증코드입니다.<br>
+				아래의 인증번호를 확인하신 후 인증 절차를 완료하세요.<br>
+				감사합니다.
+			</div>
+
+			<div style="font-size: 24px; font-weight: bold; color: #000; background: #f8d7da; display: inline-block;
+			            padding: 10px 20px; border-radius: 5px; margin-top: 20px;" th:text="${authCode}">
+				auth code
+			</div>
+
+			<div style="font-size: 14px; color: #999; margin-top: 40px;">
+				&copy; 2025 Bannabe. All Rights Reserved.
+			</div>
+		</div>
+
+	</body>
+</html>

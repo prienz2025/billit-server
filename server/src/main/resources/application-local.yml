@@ -1,0 +1,30 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ENC(MAXxF3ccE1j/m7JgCjUpPLSDERTDwmTXpIkAecq85AuldTQYjhLlvDimmOY9S21fy5R/0ERB+7RIp+i8nVVdW7rn5j4zrCOkbgxG2Il5L9E=)
+    username: ENC(UtEzThzzxjsEJ+U40z+fgkRMWPTxin5TTPSJ46TVGCxELnW8CDCML29dMu6Or6Nm)
+    password: ENC(VTttEwjWGUgfx5gNrao1acbub4n6ScTVKsXrBLYr1Ye8DXpzN3tVxDS9p7fWqXJu)
+
+  data:
+    redis:
+      host: ENC(rA6YdbKBrldfnv5g0cJ6gAP2wP0jEqvc/BKesPXs4yFCLPRGl3/z5Z3NlkhYhs19)
+      port: 6379
+      password: ENC(AxV2lvof5MlRCdqRoosxFF9F+XNm3dFSQ3Jh8jpd6MxQ7m/psPD7A6uLpypgbMLs)
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        highlight_sql: true
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always

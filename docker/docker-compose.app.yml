@@ -1,0 +1,20 @@
+name: project_bannabe
+
+include:
+  - docker-compose.db.yml
+
+services:
+  springboot:
+    build:
+      context: ../server
+      dockerfile: ../docker/Dockerfile-dev
+    restart: unless-stopped
+    depends_on:
+      - mysql
+      - redis
+    ports:
+      - '8080:8080'
+    env_file:
+      - ../server/.env
+    environment:
+      SPRING_PROFILES_ACTIVE: 'dev'

@@ -1,0 +1,27 @@
+name: project_bannabe
+services:
+  mysql:
+    image: mysql:8.0.34
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: '1234'
+      MYSQL_DATABASE: 'bannabe'
+      MYSQL_USER: 'server'
+      MYSQL_PASSWORD: '1234'
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+    command: redis-server --requirepass 1234
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+
+volumes:
+  mysql_data:
+  redis_data:

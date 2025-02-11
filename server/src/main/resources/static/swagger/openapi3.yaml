@@ -1,0 +1,965 @@
+openapi: 3.0.1
+info:
+  title: Bannabe API
+  description: Bannabe API 문서
+  version: 0.0.1
+servers:
+- url: http://localhost:8080
+tags: []
+paths:
+  /v1/stations:
+    get:
+      tags:
+      - RentalStationController
+      summary: 전체 대여 스테이션 조회 API
+      description: 전체 대여 스테이션 조회 API
+      operationId: rental_station_controller_test/get_all_rental_station
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                rental_station_controller_test/get_all_rental_station:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"stations\" : [ {\r\n\
+                    \      \"name\" : \"테스트 스테이션0\",\r\n      \"address\" : \"서울시\
+                    \ 강남구\",\r\n      \"latitude\" : 37.514575,\r\n      \"longitude\"\
+                    \ : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n      \"businessTime\"\
+                    \ : \"09:00 ~ 18:00\",\r\n      \"grade\" : \"FIRST\",\r\n   \
+                    \   \"stationId\" : 7\r\n    }, {\r\n      \"name\" : \"테스트 스테\
+                    이션1\",\r\n      \"address\" : \"서울시 강남구\",\r\n      \"latitude\"\
+                    \ : 37.514575,\r\n      \"longitude\" : 127.049555,\r\n      \"\
+                    status\" : \"OPEN\",\r\n      \"businessTime\" : \"09:00 ~ 18:00\"\
+                    ,\r\n      \"grade\" : \"FIRST\",\r\n      \"stationId\" : 8\r\
+                    \n    }, {\r\n      \"name\" : \"테스트 스테이션2\",\r\n      \"address\"\
+                    \ : \"서울시 강남구\",\r\n      \"latitude\" : 37.514575,\r\n      \"\
+                    longitude\" : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n\
+                    \      \"businessTime\" : \"09:00 ~ 18:00\",\r\n      \"grade\"\
+                    \ : \"FIRST\",\r\n      \"stationId\" : 9\r\n    }, {\r\n    \
+                    \  \"name\" : \"테스트 스테이션3\",\r\n      \"address\" : \"서울시 강남구\"\
+                    ,\r\n      \"latitude\" : 37.514575,\r\n      \"longitude\" :\
+                    \ 127.049555,\r\n      \"status\" : \"OPEN\",\r\n      \"businessTime\"\
+                    \ : \"09:00 ~ 18:00\",\r\n      \"grade\" : \"FIRST\",\r\n   \
+                    \   \"stationId\" : 10\r\n    }, {\r\n      \"name\" : \"테스트 스\
+                    테이션4\",\r\n      \"address\" : \"서울시 강남구\",\r\n      \"latitude\"\
+                    \ : 37.514575,\r\n      \"longitude\" : 127.049555,\r\n      \"\
+                    status\" : \"OPEN\",\r\n      \"businessTime\" : \"09:00 ~ 18:00\"\
+                    ,\r\n      \"grade\" : \"FIRST\",\r\n      \"stationId\" : 11\r\
+                    \n    }, {\r\n      \"name\" : \"테스트 스테이션5\",\r\n      \"address\"\
+                    \ : \"서울시 강남구\",\r\n      \"latitude\" : 37.514575,\r\n      \"\
+                    longitude\" : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n\
+                    \      \"businessTime\" : \"09:00 ~ 18:00\",\r\n      \"grade\"\
+                    \ : \"FIRST\",\r\n      \"stationId\" : 12\r\n    }, {\r\n   \
+                    \   \"name\" : \"테스트 스테이션6\",\r\n      \"address\" : \"서울시 강남구\
+                    \",\r\n      \"latitude\" : 37.514575,\r\n      \"longitude\"\
+                    \ : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n      \"businessTime\"\
+                    \ : \"09:00 ~ 18:00\",\r\n      \"grade\" : \"FIRST\",\r\n   \
+                    \   \"stationId\" : 13\r\n    }, {\r\n      \"name\" : \"테스트 스\
+                    테이션7\",\r\n      \"address\" : \"서울시 강남구\",\r\n      \"latitude\"\
+                    \ : 37.514575,\r\n      \"longitude\" : 127.049555,\r\n      \"\
+                    status\" : \"OPEN\",\r\n      \"businessTime\" : \"09:00 ~ 18:00\"\
+                    ,\r\n      \"grade\" : \"FIRST\",\r\n      \"stationId\" : 14\r\
+                    \n    }, {\r\n      \"name\" : \"테스트 스테이션8\",\r\n      \"address\"\
+                    \ : \"서울시 강남구\",\r\n      \"latitude\" : 37.514575,\r\n      \"\
+                    longitude\" : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n\
+                    \      \"businessTime\" : \"09:00 ~ 18:00\",\r\n      \"grade\"\
+                    \ : \"FIRST\",\r\n      \"stationId\" : 15\r\n    }, {\r\n   \
+                    \   \"name\" : \"테스트 스테이션9\",\r\n      \"address\" : \"서울시 강남구\
+                    \",\r\n      \"latitude\" : 37.514575,\r\n      \"longitude\"\
+                    \ : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n      \"businessTime\"\
+                    \ : \"09:00 ~ 18:00\",\r\n      \"grade\" : \"FIRST\",\r\n   \
+                    \   \"stationId\" : 16\r\n    }, {\r\n      \"name\" : \"테스트 스\
+                    테이션10\",\r\n      \"address\" : \"서울시 강남구\",\r\n      \"latitude\"\
+                    \ : 37.514575,\r\n      \"longitude\" : 127.049555,\r\n      \"\
+                    status\" : \"OPEN\",\r\n      \"businessTime\" : \"09:00 ~ 18:00\"\
+                    ,\r\n      \"grade\" : \"FIRST\",\r\n      \"stationId\" : 17\r\
+                    \n    }, {\r\n      \"name\" : \"테스트 스테이션11\",\r\n      \"address\"\
+                    \ : \"서울시 강남구\",\r\n      \"latitude\" : 37.514575,\r\n      \"\
+                    longitude\" : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n\
+                    \      \"businessTime\" : \"09:00 ~ 18:00\",\r\n      \"grade\"\
+                    \ : \"FIRST\",\r\n      \"stationId\" : 18\r\n    }, {\r\n   \
+                    \   \"name\" : \"테스트 스테이션12\",\r\n      \"address\" : \"서울시 강남\
+                    구\",\r\n      \"latitude\" : 37.514575,\r\n      \"longitude\"\
+                    \ : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n      \"businessTime\"\
+                    \ : \"09:00 ~ 18:00\",\r\n      \"grade\" : \"FIRST\",\r\n   \
+                    \   \"stationId\" : 19\r\n    }, {\r\n      \"name\" : \"테스트 스\
+                    테이션13\",\r\n      \"address\" : \"서울시 강남구\",\r\n      \"latitude\"\
+                    \ : 37.514575,\r\n      \"longitude\" : 127.049555,\r\n      \"\
+                    status\" : \"OPEN\",\r\n      \"businessTime\" : \"09:00 ~ 18:00\"\
+                    ,\r\n      \"grade\" : \"FIRST\",\r\n      \"stationId\" : 20\r\
+                    \n    }, {\r\n      \"name\" : \"테스트 스테이션14\",\r\n      \"address\"\
+                    \ : \"서울시 강남구\",\r\n      \"latitude\" : 37.514575,\r\n      \"\
+                    longitude\" : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n\
+                    \      \"businessTime\" : \"09:00 ~ 18:00\",\r\n      \"grade\"\
+                    \ : \"FIRST\",\r\n      \"stationId\" : 21\r\n    }, {\r\n   \
+                    \   \"name\" : \"테스트 스테이션15\",\r\n      \"address\" : \"서울시 강남\
+                    구\",\r\n      \"latitude\" : 37.514575,\r\n      \"longitude\"\
+                    \ : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n      \"businessTime\"\
+                    \ : \"09:00 ~ 18:00\",\r\n      \"grade\" : \"FIRST\",\r\n   \
+                    \   \"stationId\" : 22\r\n    }, {\r\n      \"name\" : \"테스트 스\
+                    테이션16\",\r\n      \"address\" : \"서울시 강남구\",\r\n      \"latitude\"\
+                    \ : 37.514575,\r\n      \"longitude\" : 127.049555,\r\n      \"\
+                    status\" : \"OPEN\",\r\n      \"businessTime\" : \"09:00 ~ 18:00\"\
+                    ,\r\n      \"grade\" : \"FIRST\",\r\n      \"stationId\" : 23\r\
+                    \n    }, {\r\n      \"name\" : \"테스트 스테이션17\",\r\n      \"address\"\
+                    \ : \"서울시 강남구\",\r\n      \"latitude\" : 37.514575,\r\n      \"\
+                    longitude\" : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n\
+                    \      \"businessTime\" : \"09:00 ~ 18:00\",\r\n      \"grade\"\
+                    \ : \"FIRST\",\r\n      \"stationId\" : 24\r\n    }, {\r\n   \
+                    \   \"name\" : \"테스트 스테이션18\",\r\n      \"address\" : \"서울시 강남\
+                    구\",\r\n      \"latitude\" : 37.514575,\r\n      \"longitude\"\
+                    \ : 127.049555,\r\n      \"status\" : \"OPEN\",\r\n      \"businessTime\"\
+                    \ : \"09:00 ~ 18:00\",\r\n      \"grade\" : \"FIRST\",\r\n   \
+                    \   \"stationId\" : 25\r\n    }, {\r\n      \"name\" : \"테스트 스\
+                    테이션19\",\r\n      \"address\" : \"서울시 강남구\",\r\n      \"latitude\"\
+                    \ : 37.514575,\r\n      \"longitude\" : 127.049555,\r\n      \"\
+                    status\" : \"OPEN\",\r\n      \"businessTime\" : \"09:00 ~ 18:00\"\
+                    ,\r\n      \"grade\" : \"FIRST\",\r\n      \"stationId\" : 26\r\
+                    \n    } ]\r\n  }\r\n}"
+  /v1/auth/login:
+    post:
+      tags:
+      - AuthController
+      summary: Form 로그인 API
+      description: Form 로그인 API
+      operationId: auth_controller_test/login_success
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              auth_controller_test/login_success:
+                value: "{\r\n  \"email\" : \"test@test.com\",\r\n  \"password\" :\
+                  \ \"1234\",\r\n  \"deviceToken\" : \"deviceToken\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                auth_controller_test/login_success:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"로그인 성공\"\
+                    ,\r\n  \"data\" : {\r\n    \"accessToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfRThsMnMxYUkwZiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzYsImV4cCI6MTc0MzE2MjQ3Nn0.htvAHk8GPn89uaSLG0SJm_cbmt4Z9kWOGO8SzFUfOr311Ct0qtfMfcKJUuzkbLqYBm4RXLHd76e-8G31Rs7NfQ\"\
+                    ,\r\n    \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfRThsMnMxYUkwZiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzYsImV4cCI6MTc0Mzc2NTQ3Nn0.XlqCMeIRWdcORUMvCHUitBzANJdhwEO3z-QLrH__S462UY1MiFuPHo_NiocPtrrMky78aht-BzVFbtqs9xSbYQ\"\
+                    \r\n  }\r\n}"
+  /v1/auth/logout:
+    post:
+      tags:
+      - AuthController
+      summary: 로그아웃 API
+      description: 로그아웃 API
+      operationId: auth_controller_test/logout_success
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              auth_controller_test/logout_success:
+                value: "{\r\n  \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfRFNaMkFYT3lPWSIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzQsImV4cCI6MTc0Mzc2NTQ3NH0.p9B7a9Ejug8mVgna8FKg_XH4e3TCMTQIflBb4vT4JSjsXU5QMMyOEjNPUtR-3Hzks3gT412tldKnS-FF0O8f6Q\"\
+                  \r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                auth_controller_test/logout_success:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/auth/register:
+    post:
+      tags:
+      - AuthController
+      summary: 회원가입 API
+      description: 회원가입 API
+      operationId: auth_controller_test/register_user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              auth_controller_test/register_user:
+                value: "{\r\n  \"email\" : \"newUser@test.com\",\r\n  \"password\"\
+                  \ : \"1234\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                auth_controller_test/register_user:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+  /v1/auth/reset-password:
+    put:
+      tags:
+      - AuthController
+      summary: 비밀번호 재설정(비 로그인) API
+      description: 비밀번호 재설정(비 로그인) API
+      operationId: auth_controller_test/rest_password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              auth_controller_test/rest_password:
+                value: "{\r\n  \"authCode\" : \"4koKGg\",\r\n  \"email\" : \"test@test.com\"\
+                  ,\r\n  \"newPassword\" : \"5678\",\r\n  \"newPasswordConfirm\" :\
+                  \ \"5678\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                auth_controller_test/rest_password:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+  /v1/auth/send-code:
+    post:
+      tags:
+      - AuthController
+      summary: 인증코드 발송 API
+      description: 인증코드 발송 API
+      operationId: auth_controller_test/send_auth_code
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              auth_controller_test/send_auth_code:
+                value: "{\r\n  \"email\" : \"test@test.com\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                auth_controller_test/send_auth_code:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+  /v1/auth/verify-code:
+    post:
+      tags:
+      - AuthController
+      summary: 인증코드 검증 API
+      description: 인증코드 검증 API
+      operationId: auth_controller_test/verify_auth_code
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              auth_controller_test/verify_auth_code:
+                value: "{\r\n  \"email\" : \"test@test.com\",\r\n  \"authCode\" :\
+                  \ \"kX1V3A\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                auth_controller_test/verify_auth_code:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+  /v1/payments/calculate:
+    post:
+      tags:
+      - PaymentController
+      summary: 결제 금액 계산 API
+      description: 결제 금액 계산 API
+      operationId: payment_controller_test/calculate_amount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              payment_controller_test/calculate_amount:
+                value: "{\r\n  \"rentalItemToken\" : \"RI_iKlxIVa9zl\",\r\n  \"rentalTime\"\
+                  \ : 2\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                payment_controller_test/calculate_amount:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"rentalItemToken\" : \"\
+                    RI_iKlxIVa9zl\",\r\n    \"pricePerHour\" : 1000,\r\n    \"rentalTime\"\
+                    \ : 2,\r\n    \"amount\" : 2000\r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/payments/checkout-url:
+    get:
+      tags:
+      - PaymentController
+      summary: 결제창 호출 URL 조회 API
+      description: 결제창 호출 URL 조회 API
+      operationId: payment_controller_test/get_checkout_url
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                payment_controller_test/get_checkout_url:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"checkoutUrl\" : \"http://localhost:8080/v1/payments/checkout\"\
+                    \r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/payments/confirm:
+    post:
+      tags:
+      - PaymentController
+      summary: 결제 승인 API
+      description: 결제 승인 API
+      operationId: payment_controller_test/confirm_payment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              payment_controller_test/confirm_payment:
+                value: "{\r\n  \"paymentKey\" : \"paymentKey\",\r\n  \"amount\" :\
+                  \ 1000,\r\n  \"orderId\" : \"orderId\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                payment_controller_test/confirm_payment:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"rentalHistoryToken\"\
+                    \ : \"RH_bSYWis4nPS\"\r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/rentals/{rentalItemToken}:
+    get:
+      tags:
+      - RentalController
+      summary: 대여물품 조회 API
+      description: 대여물품 조회 API
+      operationId: rental_controller_test/get_rental_item_token
+      parameters:
+      - name: rentalItemToken
+        in: path
+        description: ""
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                rental_controller_test/get_rental_item_token:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"name\" : \"65W 충전기\"\
+                    ,\r\n    \"price\" : 1000,\r\n    \"currentStationName\" : \"테\
+                    스트 스테이션\"\r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/returns/{rentalItemToken}:
+    get:
+      tags:
+      - ReturnController
+      summary: 반납 물품 데이터 조회 API
+      description: 반납 물품 데이터 조회 API
+      operationId: return_controller_test/get_return_item_info
+      parameters:
+      - name: rentalItemToken
+        in: path
+        description: ""
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                return_controller_test/get_return_item_info:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"rentalItemName\" : \"\
+                    65W 충전기\",\r\n    \"rentalHistory\" : {\r\n      \"status\" :\
+                    \ \"RENTAL\",\r\n      \"rentalTime\" : 1,\r\n      \"startTime\"\
+                    \ : \"2025-03-28T20:17:34\",\r\n      \"expectedReturnTime\" :\
+                    \ \"2025-03-28T21:17:34\"\r\n    },\r\n    \"rentalStation\" :\
+                    \ {\r\n      \"rentalStationName\" : \"대여 스테이션\",\r\n      \"\
+                    currentStationName\" : \"반납 스테이션\"\r\n    }\r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+    post:
+      tags:
+      - ReturnController
+      summary: 물품 반납 API
+      description: 물품 반납 API
+      operationId: return_controller_test/return_item
+      parameters:
+      - name: rentalItemToken
+        in: path
+        description: ""
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              return_controller_test/return_item:
+                value: "{\r\n  \"returnStationId\" : 6\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                return_controller_test/return_item:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/stations/{stationId}:
+    get:
+      tags:
+      - RentalStationController
+      summary: 대여 스테이션 상세정보 조회 API
+      description: 대여 스테이션 상세정보 조회 API
+      operationId: rental_station_controller_test/get_rental_station_detail
+      parameters:
+      - name: stationId
+        in: path
+        description: ""
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                rental_station_controller_test/get_rental_station_detail:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"rentalItems\" : [ {\r\
+                    \n      \"itemTypeId\" : 3,\r\n      \"name\" : \"65W 충전기\",\r\
+                    \n      \"image\" : \"test-image.png\",\r\n      \"category\"\
+                    \ : \"CHARGER\",\r\n      \"stock\" : 10\r\n    }, {\r\n     \
+                    \ \"itemTypeId\" : 4,\r\n      \"name\" : \"100W 충전기\",\r\n  \
+                    \    \"image\" : \"test-image.png\",\r\n      \"category\" : \"\
+                    CHARGER\",\r\n      \"stock\" : 10\r\n    } ]\r\n  }\r\n}"
+  /v1/users/me:
+    get:
+      tags:
+      - UserController
+      summary: 회원 정보 조회(ME) API
+      description: 회원 정보 조회(ME) API
+      operationId: user_controller_test/get_user_info
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                user_controller_test/get_user_info:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"email\" : \"test@test.com\"\
+                    ,\r\n    \"nickname\" : \"TestUser\",\r\n    \"profileImage\"\
+                    \ : \"https://test.com/test.jpg\",\r\n    \"isDefaultProfileImage\"\
+                    \ : false\r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/auth/token/refresh:
+    post:
+      tags:
+      - AuthController
+      summary: 토큰 재발급 API
+      description: 토큰 재발급 API
+      operationId: auth_controller_test/refresh_jwt
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              auth_controller_test/refresh_jwt:
+                value: "{\r\n  \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfeUhIVjltUVBzeiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzQsImV4cCI6MTc0Mzc2NTQ3NH0.aiQobyR4nql2u7ZWuzVwoWQAo6agXH0f5cD90eQ8DsZqqPF05jXDcdZnN2ovXMsfiQRjFxShNiV6KIW8Esxn8g\"\
+                  \r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                auth_controller_test/refresh_jwt:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"accessToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfeUhIVjltUVBzeiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzQsImV4cCI6MTc0MzE2MjQ3NH0.4XzNgtJfllCgCJqIQTD_K0-v3EDhBidQGrFA73VPxTtUDzWE4w7QCZKe9VvGKis6DUHkj-eDN2VRx1k1aGu7pA\"\
+                    ,\r\n    \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfeUhIVjltUVBzeiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzQsImV4cCI6MTc0Mzc2NTQ3NH0.aiQobyR4nql2u7ZWuzVwoWQAo6agXH0f5cD90eQ8DsZqqPF05jXDcdZnN2ovXMsfiQRjFxShNiV6KIW8Esxn8g\"\
+                    \r\n  }\r\n}"
+  /v1/oauth2/login/{provider}:
+    post:
+      tags:
+      - OAuth2Controller
+      summary: OAuth2 인증 요청 API
+      description: OAuth2 인증 요청 API
+      operationId: o_auth2_controller_test/kakao_login_success
+      parameters:
+      - name: provider
+        in: path
+        description: ""
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              o_auth2_controller_test/kakao_login_success:
+                value: "{\r\n  \"accessToken\" : \"accessToken\",\r\n  \"deviceToken\"\
+                  \ : \"deviceToken\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                o_auth2_controller_test/kakao_login_success:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"accessToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiUk9MRSI6IlJPTEVfVVNFUiIsImlhdCI6MTc0MzE2MDY4MCwiZXhwIjoxNzQzMTYyNDgwfQ.YtBq69X3-WbcaRYfCs8voSPHbC4YxitEo_B8xs_8z73alQMCtebHz9BH-trSHeAtunoy8jqLcfXK0coW1fb12Q\"\
+                    ,\r\n    \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiUk9MRSI6IlJPTEVfVVNFUiIsImlhdCI6MTc0MzE2MDY4MCwiZXhwIjoxNzQzNzY1NDgwfQ.tfG_xQT5Rc_WlzYaBNI5RoiBhDR6vAb0EuLIPkgdsSWCc5ANODATSjOS0WuGzvhbEFGsnH6-RG1mUKLmQ5XuFg\"\
+                    \r\n  }\r\n}"
+  /v1/rentals/success/{rentalHistoryToken}:
+    get:
+      tags:
+      - RentalController
+      summary: 대여내역 조회 API
+      description: 대여내역 조회 API
+      operationId: rental_controller_test/get_rental_history_info
+      parameters:
+      - name: rentalHistoryToken
+        in: path
+        description: ""
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                rental_controller_test/get_rental_history_info:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"totalAmount\" : 1000,\r\
+                    \n    \"itemName\" : \"65W 충전기\",\r\n    \"rentalTime\" : 1,\r\
+                    \n    \"rentalStationName\" : \"테스트 스테이션\"\r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/stations/{stationId}/bookmark:
+    post:
+      tags:
+      - RentalStationController
+      summary: 스테이션 북마크 API
+      description: 스테이션 북마크 API
+      operationId: rental_station_controller_test/bookmark_rental_station
+      parameters:
+      - name: stationId
+        in: path
+        description: ""
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                rental_station_controller_test/bookmark_rental_station:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/users/me/nickname:
+    patch:
+      tags:
+      - UserController
+      summary: 닉네임 변경 API
+      description: 닉네임 변경 API
+      operationId: user_controller_test/change_nickname
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              user_controller_test/change_nickname:
+                value: "{\r\n  \"nickname\" : \"newNickname\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                user_controller_test/change_nickname:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/users/me/password:
+    put:
+      tags:
+      - UserController
+      summary: 비밀번호 재설정(로그인) API
+      description: 비밀번호 재설정(로그인) API
+      operationId: user_controller_test/change_password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              user_controller_test/change_password:
+                value: "{\r\n  \"currentPassword\" : \"password\",\r\n  \"newPassword\"\
+                  \ : \"newPassword\",\r\n  \"newPasswordConfirm\" : \"newPassword\"\
+                  \r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                user_controller_test/change_password:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/users/me/profile-image:
+    patch:
+      tags:
+      - UserController
+      summary: 프로필 이미지 변경 API
+      description: 프로필 이미지 변경 API
+      operationId: user_controller_test/change_profile_image
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/v1-stations486549215"
+            examples:
+              user_controller_test/change_profile_image:
+                value: "{\r\n  \"imageUrl\" : \"newProfileImage.png\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                user_controller_test/change_profile_image:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/users/me/rentals:
+    get:
+      tags:
+      - UserController
+      summary: 대여 내역 조회 API
+      description: 대여 내역 조회 API
+      operationId: user_controller_test/get_all_rental_history
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                user_controller_test/get_all_rental_history:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"content\" : [ {\r\n \
+                    \     \"name\" : \"65W충전기\",\r\n      \"status\" : \"대여중\",\r\n\
+                    \      \"rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-28T21:18:06\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-28T22:18:06\",\r\
+                    \n      \"token\" : \"RH_2vFDnCaDKT\"\r\n    }, {\r\n      \"\
+                    name\" : \"65W충전기\",\r\n      \"status\" : \"대여중\",\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-28T21:18:06\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-28T22:18:06\",\r\
+                    \n      \"token\" : \"RH_onSunxzjTa\"\r\n    }, {\r\n      \"\
+                    name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-27T20:18:06\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-27T21:18:06\",\r\
+                    \n      \"token\" : \"RH_pCxonF9BYv\"\r\n    }, {\r\n      \"\
+                    name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-26T20:18:06\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-26T21:18:06\",\r\
+                    \n      \"token\" : \"RH_V3ZhHy4z2J\"\r\n    }, {\r\n      \"\
+                    name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-25T20:18:06\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-25T21:18:06\",\r\
+                    \n      \"token\" : \"RH_gSIVfidbwm\"\r\n    }, {\r\n      \"\
+                    name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-24T20:18:06\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-24T21:18:06\",\r\
+                    \n      \"token\" : \"RH_4QagpykCj5\"\r\n    }, {\r\n      \"\
+                    name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-23T20:18:06\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-23T21:18:06\",\r\
+                    \n      \"token\" : \"RH_mchI4WnMds\"\r\n    }, {\r\n      \"\
+                    name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-22T20:18:06\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-22T21:18:06\",\r\
+                    \n      \"token\" : \"RH_DJbGgtJUUY\"\r\n    }, {\r\n      \"\
+                    name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-21T20:18:06\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-21T21:18:06\",\r\
+                    \n      \"token\" : \"RH_m6y0T8b9vp\"\r\n    }, {\r\n      \"\
+                    name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-20T20:18:06\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-20T21:18:06\",\r\
+                    \n      \"token\" : \"RH_NXF2Duzscr\"\r\n    } ],\r\n    \"page\"\
+                    \ : {\r\n      \"size\" : 10,\r\n      \"number\" : 0,\r\n   \
+                    \   \"totalElements\" : 20,\r\n      \"totalPages\" : 2\r\n  \
+                    \  }\r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/stations/{stationId}/items/{itemTypeId}:
+    get:
+      tags:
+      - RentalStationController
+      summary: 대여 물품 상세정보 조회 API
+      description: 대여 물품 상세정보 조회 API
+      operationId: rental_station_controller_test/get_rental_item_detail
+      parameters:
+      - name: stationId
+        in: path
+        description: ""
+        required: true
+        schema:
+          type: string
+      - name: itemTypeId
+        in: path
+        description: ""
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                rental_station_controller_test/get_rental_item_detail:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"name\" : \"65W 충전기\"\
+                    ,\r\n    \"image\" : \"test-image.png\",\r\n    \"category\" :\
+                    \ \"CHARGER\",\r\n    \"description\" : \"테스트 설명\",\r\n    \"\
+                    price\" : 1000,\r\n    \"stock\" : 10\r\n  }\r\n}"
+  /v1/users/me/profile-image/default:
+    patch:
+      tags:
+      - UserController
+      summary: 프로필 이미지 초기화 API
+      description: 프로필 이미지 초기화 API
+      operationId: user_controller_test/change_profile_image_to_default
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                user_controller_test/change_profile_image_to_default:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/users/me/profile-image/pre-signed:
+    get:
+      tags:
+      - UserController
+      summary: S3 PreSignedURL 조회 API
+      description: S3 PreSignedURL 조회 API
+      operationId: user_controller_test/get_pre_signed_url
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                user_controller_test/get_pre_signed_url:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"preSignedUrl\" : \"https://test.com/test.jpg\"\
+                    \r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/users/me/rentals/active:
+    get:
+      tags:
+      - UserController
+      summary: 대여 현황 조회 API
+      description: 대여 현황 조회 API
+      operationId: user_controller_test/get_active_rental_history
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                user_controller_test/get_active_rental_history:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"rentals\" : [ {\r\n \
+                    \     \"name\" : \"65W충전기\",\r\n      \"status\" : \"대여중\",\r\n\
+                    \      \"rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-28T21:18:05\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-28T22:18:05\",\r\
+                    \n      \"token\" : \"RH_C4SeqTZYsR\"\r\n    }, {\r\n      \"\
+                    name\" : \"65W충전기\",\r\n      \"status\" : \"대여중\",\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-28T21:18:05\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-03-28T22:18:05\",\r\
+                    \n      \"token\" : \"RH_RpJ85rCOYd\"\r\n    } ]\r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/users/me/stations/bookmark:
+    get:
+      tags:
+      - UserController
+      summary: 북마크 스테이션 조회 API
+      description: 북마크 스테이션 조회 API
+      operationId: user_controller_test/get_bookmark_stations
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                user_controller_test/get_bookmark_stations:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"bookmarks\" : [ {\r\n\
+                    \      \"name\" : \"테스트 스테이션0\",\r\n      \"stationId\" : 2,\r\
+                    \n      \"bookmarkId\" : 2\r\n    }, {\r\n      \"name\" : \"테\
+                    스트 스테이션1\",\r\n      \"stationId\" : 3,\r\n      \"bookmarkId\"\
+                    \ : 3\r\n    }, {\r\n      \"name\" : \"테스트 스테이션2\",\r\n     \
+                    \ \"stationId\" : 4,\r\n      \"bookmarkId\" : 4\r\n    }, {\r\
+                    \n      \"name\" : \"테스트 스테이션3\",\r\n      \"stationId\" : 5,\r\
+                    \n      \"bookmarkId\" : 5\r\n    }, {\r\n      \"name\" : \"테\
+                    스트 스테이션4\",\r\n      \"stationId\" : 6,\r\n      \"bookmarkId\"\
+                    \ : 6\r\n    }, {\r\n      \"name\" : \"테스트 스테이션5\",\r\n     \
+                    \ \"stationId\" : 7,\r\n      \"bookmarkId\" : 7\r\n    }, {\r\
+                    \n      \"name\" : \"테스트 스테이션6\",\r\n      \"stationId\" : 8,\r\
+                    \n      \"bookmarkId\" : 8\r\n    }, {\r\n      \"name\" : \"테\
+                    스트 스테이션7\",\r\n      \"stationId\" : 9,\r\n      \"bookmarkId\"\
+                    \ : 9\r\n    }, {\r\n      \"name\" : \"테스트 스테이션8\",\r\n     \
+                    \ \"stationId\" : 10,\r\n      \"bookmarkId\" : 10\r\n    }, {\r\
+                    \n      \"name\" : \"테스트 스테이션9\",\r\n      \"stationId\" : 11,\r\
+                    \n      \"bookmarkId\" : 11\r\n    } ]\r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /v1/users/me/stations/bookmark/{bookmarkId}:
+    delete:
+      tags:
+      - UserController
+      summary: 북마크 스테이션 삭제 API
+      description: 북마크 스테이션 삭제 API
+      operationId: user_controller_test/remove_bookmark_station
+      parameters:
+      - name: bookmarkId
+        in: path
+        description: ""
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v1-stations486549215"
+              examples:
+                user_controller_test/remove_bookmark_station:
+                  value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
+                    로 처리되었습니다.\",\r\n  \"data\" : { }\r\n}"
+      security:
+      - bearerAuthJWT: []
+components:
+  schemas:
+    v1-stations486549215:
+      type: object
+  securitySchemes:
+    bearerAuthJWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

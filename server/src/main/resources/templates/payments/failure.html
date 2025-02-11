@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<title>결제실패</title>
+		<link href="/css/output.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<section class="bg-white dark:bg-gray-900 ">
+			<div class="container flex items-center min-h-screen px-6 py-12 mx-auto">
+				<div class="flex flex-col items-center max-w-sm mx-auto text-center">
+					<p class="p-3 text-sm font-medium text-red-500 rounded-full bg-red-50 dark:bg-gray-800">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+						     xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" stroke-linecap="round"
+							      stroke-linejoin="round"/>
+						</svg>
+					</p>
+					<h1 class="mt-3 text-2xl font-semibold text-red-800 dark:text-white md:text-3xl" id="code">Page not found</h1>
+					<p class="mt-4 text-black-500 dark:text-gray-400" id="message">The page you are looking for doesn't exist. Here are some
+						helpful
+						links:</p>
+				</div>
+			</div>
+		</section>
+		<script src="/js/paymentFailure.js"></script>
+	</body>
+</html>

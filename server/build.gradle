@@ -1,0 +1,239 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.2'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'com.epages.restdocs-api-spec' version '0.19.0'
+    id 'com.github.node-gradle.node' version '7.0.1'
+    id 'jacoco'
+}
+
+group = 'site.bannabe'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+jacoco {
+    toolVersion = '0.8.11'
+}
+
+node {
+    download = true
+    version = '20.9.0'
+    npmVersion = '10.8.2'
+    nodeProjectDir = layout.projectDirectory.dir('src/main/resources/static').asFile
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.4.2'
+
+    // aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+    // database
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.redisson:redisson-spring-boot-starter:3.37.0'
+
+    // jwt
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+    // querydsl
+    implementation 'io.github.openfeign.querydsl:querydsl-core:6.10.1'
+    implementation 'io.github.openfeign.querydsl:querydsl-jpa:6.10.1'
+    annotationProcessor 'io.github.openfeign.querydsl:querydsl-apt:6.10.1:jpa'
+    annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
+    annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
+
+    // mail & validation
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'
+
+    // aws
+    implementation 'io.awspring.cloud:spring-cloud-aws-starter-s3:3.3.0'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.projectlombok:lombok'
+
+    // test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.12.0'
+    testImplementation 'io.rest-assured:rest-assured:5.5.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // test containers
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.testcontainers:mysql'
+    testImplementation 'com.redis:testcontainers-redis'
+
+    // RestDocs
+    testImplementation 'org.springframework.restdocs:spring-restdocs-restassured'
+    testImplementation 'com.epages:restdocs-api-spec-restassured:0.19.0'
+    testImplementation 'com.epages:restdocs-api-spec-mockmvc:0.19.0'
+}
+
+openapi3 {
+    server = 'http://localhost:8080'
+    title = 'Bannabe API'
+    description = 'Bannabe API 문서'
+    version = '0.0.1'
+    format = 'yaml'
+}
+
+tasks.register("copyOasToSwagger", Copy) {
+    dependsOn 'openapi3'
+    doFirst {
+        delete("src/main/resources/static/swagger/openapi3.yaml")
+    }
+    from(layout.buildDirectory.file("api-spec/openapi3.yaml"))
+    into(layout.projectDirectory.dir("src/main/resources/static/swagger"))
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+    //OpenJDK 64-bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended 방지
+    jvmArgs '-Xshare:off'
+    finalizedBy 'copyOasToSwagger', 'jacocoTestReport'
+}
+
+tasks.named('build') {
+    finalizedBy 'copyOasToSwagger'
+}
+
+/*QueryDSL Config*/
+def querydslDir = layout.buildDirectory.dir('generated/querydsl')
+
+sourceSets {
+    main {
+        java {
+            srcDirs(querydslDir)
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.generatedSourceOutputDirectory.set(file(querydslDir))
+}
+
+tasks.register('cleanQuerydsl', Delete) {
+    delete(querydslDir)
+}
+
+tasks.named('clean') {
+    dependsOn 'cleanQuerydsl'
+}
+/*QueryDSL Config*/
+
+/*TailwindCss Config*/
+tasks.register('tailwindCss', NpmTask) {
+    npmCommand.set(['run'])
+    args.set(["build"])
+    dependsOn npmInstall
+}
+
+tasks.named('processResources') {
+    dependsOn 'tailwindCss'
+}
+
+gradle.taskGraph.whenReady { taskGraph ->
+    if (gradle.startParameter.taskNames == ['test']) {
+        ['nodeSetup', 'npmSetup', 'npmInstall', 'tailwindCss', 'processResources'].each { taskName ->
+            tasks.named(taskName).configure { enabled = false }
+        }
+    }
+}
+/*TailwindCss Config*/
+
+/*Jacoco Config*/
+tasks.named('jacocoTestReport', JacocoReport) {
+    dependsOn test
+
+    reports {
+        html.required.set(true)
+        xml.required.set(true)
+
+        xml.destination(file(layout.buildDirectory.file("jacoco/jacoco.xml")))
+        html.destination(file(layout.buildDirectory.dir("jacoco/html")))
+    }
+
+    excludedClassFilesForReport(classDirectories)
+    finalizedBy 'jacocoTestCoverageVerification'
+}
+
+tasks.named('jacocoTestCoverageVerification', JacocoCoverageVerification) {
+    excludedClassFilesForReport(classDirectories)
+
+    violationRules {
+        rule {
+            element = 'CLASS'
+            enabled = true
+
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                // minimum = 0.8
+            }
+
+            limit {
+                counter = 'BRANCH'
+                value = 'COVEREDRATIO'
+                // minimum = 0.8
+            }
+        }
+    }
+}
+
+private excludedClassFilesForReport(classDirectories) {
+    classDirectories.setFrom(
+            files(classDirectories.files.collect {
+                fileTree(dir: it, exclude: [
+                        '**/entity/**',
+                        '**/request/**',
+                        '**/response/**',
+                        '**/config/**',
+                        '**/*Application*',
+                        '**/converter/**',
+                        '**/type/**',
+                        '**/redis/**',
+                        '**/api/**',
+                        '**/security/**',
+                        '**/advice/**',
+                        '**/utils/**',
+                        '**/JWTVerificationStatus*',
+                        '**/OAuth2UserInfo*',
+                        '**/PaymentViewController*',
+                        '**/PaymentTestController*'
+                ])
+            })
+    )
+}
+/*Jacoco Config*/
