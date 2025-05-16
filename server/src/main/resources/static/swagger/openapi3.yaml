@@ -145,8 +145,8 @@ paths:
               examples:
                 auth_controller_test/login_success:
                   value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"로그인 성공\"\
-                    ,\r\n  \"data\" : {\r\n    \"accessToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfRThsMnMxYUkwZiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzYsImV4cCI6MTc0MzE2MjQ3Nn0.htvAHk8GPn89uaSLG0SJm_cbmt4Z9kWOGO8SzFUfOr311Ct0qtfMfcKJUuzkbLqYBm4RXLHd76e-8G31Rs7NfQ\"\
-                    ,\r\n    \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfRThsMnMxYUkwZiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzYsImV4cCI6MTc0Mzc2NTQ3Nn0.XlqCMeIRWdcORUMvCHUitBzANJdhwEO3z-QLrH__S462UY1MiFuPHo_NiocPtrrMky78aht-BzVFbtqs9xSbYQ\"\
+                    ,\r\n  \"data\" : {\r\n    \"accessToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfRG9VRG1wTnlzYiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDczOTUwMDgsImV4cCI6MTc0NzM5NjgwOH0.8fa-NBLpdhx_xPifXEo7IGzE2ToNdkRQi8FAyKGxmE3K6-dsSdqp_a9UqfHgC51F0cDeF9OJTYcaAGoACY9v8g\"\
+                    ,\r\n    \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfRG9VRG1wTnlzYiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDczOTUwMDgsImV4cCI6MTc0Nzk5OTgwOH0.Wc97011wCTKrNMEAouLn0tNWCm_1HgPtemUm_CX_JZRB6y8AQF_EQ7hgzS9izkMs9W0BLmbZP9kfVLmMMzpugQ\"\
                     \r\n  }\r\n}"
   /v1/auth/logout:
     post:
@@ -162,7 +162,7 @@ paths:
               $ref: "#/components/schemas/v1-stations486549215"
             examples:
               auth_controller_test/logout_success:
-                value: "{\r\n  \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfRFNaMkFYT3lPWSIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzQsImV4cCI6MTc0Mzc2NTQ3NH0.p9B7a9Ejug8mVgna8FKg_XH4e3TCMTQIflBb4vT4JSjsXU5QMMyOEjNPUtR-3Hzks3gT412tldKnS-FF0O8f6Q\"\
+                value: "{\r\n  \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfMXlxRFlQdTN3RiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDczOTUwMDMsImV4cCI6MTc0Nzk5OTgwM30.9oWUtTw9JJIi5oyXshLHe4Aoqt-8jEGU1UIH9vu6nPKe87VyQzs1kcPCkXZdF8wchUEp48pk5__yXC2v1UoC2g\"\
                   \r\n}"
       responses:
         "200":
@@ -218,7 +218,7 @@ paths:
               $ref: "#/components/schemas/v1-stations486549215"
             examples:
               auth_controller_test/rest_password:
-                value: "{\r\n  \"authCode\" : \"4koKGg\",\r\n  \"email\" : \"test@test.com\"\
+                value: "{\r\n  \"authCode\" : \"pt0M5y\",\r\n  \"email\" : \"test@test.com\"\
                   ,\r\n  \"newPassword\" : \"5678\",\r\n  \"newPasswordConfirm\" :\
                   \ \"5678\"\r\n}"
       responses:
@@ -273,7 +273,7 @@ paths:
             examples:
               auth_controller_test/verify_auth_code:
                 value: "{\r\n  \"email\" : \"test@test.com\",\r\n  \"authCode\" :\
-                  \ \"kX1V3A\"\r\n}"
+                  \ \"5IWqXT\"\r\n}"
       responses:
         "200":
           description: "200"
@@ -299,7 +299,7 @@ paths:
               $ref: "#/components/schemas/v1-stations486549215"
             examples:
               payment_controller_test/calculate_amount:
-                value: "{\r\n  \"rentalItemToken\" : \"RI_iKlxIVa9zl\",\r\n  \"rentalTime\"\
+                value: "{\r\n  \"rentalItemToken\" : \"RI_BLMkk1ZLEH\",\r\n  \"rentalTime\"\
                   \ : 2\r\n}"
       responses:
         "200":
@@ -312,7 +312,7 @@ paths:
                 payment_controller_test/calculate_amount:
                   value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
                     로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"rentalItemToken\" : \"\
-                    RI_iKlxIVa9zl\",\r\n    \"pricePerHour\" : 1000,\r\n    \"rentalTime\"\
+                    RI_BLMkk1ZLEH\",\r\n    \"pricePerHour\" : 1000,\r\n    \"rentalTime\"\
                     \ : 2,\r\n    \"amount\" : 2000\r\n  }\r\n}"
       security:
       - bearerAuthJWT: []
@@ -364,7 +364,7 @@ paths:
                 payment_controller_test/confirm_payment:
                   value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
                     로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"rentalHistoryToken\"\
-                    \ : \"RH_bSYWis4nPS\"\r\n  }\r\n}"
+                    \ : \"RH_3W2Gsgd9j8\"\r\n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /v1/rentals/{rentalItemToken}:
@@ -423,8 +423,8 @@ paths:
                     로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"rentalItemName\" : \"\
                     65W 충전기\",\r\n    \"rentalHistory\" : {\r\n      \"status\" :\
                     \ \"RENTAL\",\r\n      \"rentalTime\" : 1,\r\n      \"startTime\"\
-                    \ : \"2025-03-28T20:17:34\",\r\n      \"expectedReturnTime\" :\
-                    \ \"2025-03-28T21:17:34\"\r\n    },\r\n    \"rentalStation\" :\
+                    \ : \"2025-05-16T20:29:45\",\r\n      \"expectedReturnTime\" :\
+                    \ \"2025-05-16T21:29:45\"\r\n    },\r\n    \"rentalStation\" :\
                     \ {\r\n      \"rentalStationName\" : \"대여 스테이션\",\r\n      \"\
                     currentStationName\" : \"반납 스테이션\"\r\n    }\r\n  }\r\n}"
       security:
@@ -531,7 +531,7 @@ paths:
               $ref: "#/components/schemas/v1-stations486549215"
             examples:
               auth_controller_test/refresh_jwt:
-                value: "{\r\n  \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfeUhIVjltUVBzeiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzQsImV4cCI6MTc0Mzc2NTQ3NH0.aiQobyR4nql2u7ZWuzVwoWQAo6agXH0f5cD90eQ8DsZqqPF05jXDcdZnN2ovXMsfiQRjFxShNiV6KIW8Esxn8g\"\
+                value: "{\r\n  \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfdHRyZTBnbXNrWiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDczOTUwMDQsImV4cCI6MTc0Nzk5OTgwNH0.PqKz3RlRpoJTHDXk2iOPOgiKrku7bx_AC9pFTG0eMQGc1MVsi04QBuP1f_HVTfeLDLOjBmKrOP7PQTh7Xo9BkQ\"\
                   \r\n}"
       responses:
         "200":
@@ -543,8 +543,8 @@ paths:
               examples:
                 auth_controller_test/refresh_jwt:
                   value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
-                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"accessToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfeUhIVjltUVBzeiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzQsImV4cCI6MTc0MzE2MjQ3NH0.4XzNgtJfllCgCJqIQTD_K0-v3EDhBidQGrFA73VPxTtUDzWE4w7QCZKe9VvGKis6DUHkj-eDN2VRx1k1aGu7pA\"\
-                    ,\r\n    \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfeUhIVjltUVBzeiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDMxNjA2NzQsImV4cCI6MTc0Mzc2NTQ3NH0.aiQobyR4nql2u7ZWuzVwoWQAo6agXH0f5cD90eQ8DsZqqPF05jXDcdZnN2ovXMsfiQRjFxShNiV6KIW8Esxn8g\"\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"accessToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfdHRyZTBnbXNrWiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDczOTUwMDQsImV4cCI6MTc0NzM5NjgwNH0.qTgzRKoRrde2oEJEmtO0J8JiDWBINQ4rdK-Q5iCTHchj7KK3Qphfv-ga8-RsMV9-h6n1nx_gWl7GsXDFOHr0Gg\"\
+                    ,\r\n    \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVU1JfdHRyZTBnbXNrWiIsIlJPTEUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDczOTUwMDQsImV4cCI6MTc0Nzk5OTgwNH0.PqKz3RlRpoJTHDXk2iOPOgiKrku7bx_AC9pFTG0eMQGc1MVsi04QBuP1f_HVTfeLDLOjBmKrOP7PQTh7Xo9BkQ\"\
                     \r\n  }\r\n}"
   /v1/oauth2/login/{provider}:
     post:
@@ -579,8 +579,8 @@ paths:
               examples:
                 o_auth2_controller_test/kakao_login_success:
                   value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
-                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"accessToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiUk9MRSI6IlJPTEVfVVNFUiIsImlhdCI6MTc0MzE2MDY4MCwiZXhwIjoxNzQzMTYyNDgwfQ.YtBq69X3-WbcaRYfCs8voSPHbC4YxitEo_B8xs_8z73alQMCtebHz9BH-trSHeAtunoy8jqLcfXK0coW1fb12Q\"\
-                    ,\r\n    \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiUk9MRSI6IlJPTEVfVVNFUiIsImlhdCI6MTc0MzE2MDY4MCwiZXhwIjoxNzQzNzY1NDgwfQ.tfG_xQT5Rc_WlzYaBNI5RoiBhDR6vAb0EuLIPkgdsSWCc5ANODATSjOS0WuGzvhbEFGsnH6-RG1mUKLmQ5XuFg\"\
+                    로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"accessToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiUk9MRSI6IlJPTEVfVVNFUiIsImlhdCI6MTc0NzM5NTAyMiwiZXhwIjoxNzQ3Mzk2ODIyfQ.iBQON_NngdqG1xU3GVa7pnKwHFxsG4bYYEugn9Ov-PKQQAnbeFXNhF20gVfJONiUEeutQm8xdaaPQnMQecjEgw\"\
+                    ,\r\n    \"refreshToken\" : \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiUk9MRSI6IlJPTEVfVVNFUiIsImlhdCI6MTc0NzM5NTAyMiwiZXhwIjoxNzQ3OTk5ODIyfQ.bgbHTmL5usyljSKsnRN89cNbem2QKQO59TYM5idv5ODyDFrULokkWCI4GAUCYjy0hkKdWnVduQ3W2MMVO6hezQ\"\
                     \r\n  }\r\n}"
   /v1/rentals/success/{rentalHistoryToken}:
     get:
@@ -743,45 +743,45 @@ paths:
                   value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
                     로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"content\" : [ {\r\n \
                     \     \"name\" : \"65W충전기\",\r\n      \"status\" : \"대여중\",\r\n\
-                    \      \"rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-28T21:18:06\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-28T22:18:06\",\r\
-                    \n      \"token\" : \"RH_2vFDnCaDKT\"\r\n    }, {\r\n      \"\
+                    \      \"rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-16T21:30:32\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-16T22:30:32\",\r\
+                    \n      \"token\" : \"RH_hwZSgAlgzL\"\r\n    }, {\r\n      \"\
                     name\" : \"65W충전기\",\r\n      \"status\" : \"대여중\",\r\n      \"\
-                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-28T21:18:06\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-28T22:18:06\",\r\
-                    \n      \"token\" : \"RH_onSunxzjTa\"\r\n    }, {\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-16T21:30:32\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-16T22:30:32\",\r\
+                    \n      \"token\" : \"RH_ZGAJd6gyF1\"\r\n    }, {\r\n      \"\
                     name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
-                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-27T20:18:06\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-27T21:18:06\",\r\
-                    \n      \"token\" : \"RH_pCxonF9BYv\"\r\n    }, {\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-15T20:30:32\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-15T21:30:32\",\r\
+                    \n      \"token\" : \"RH_u88HJSo20p\"\r\n    }, {\r\n      \"\
                     name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
-                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-26T20:18:06\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-26T21:18:06\",\r\
-                    \n      \"token\" : \"RH_V3ZhHy4z2J\"\r\n    }, {\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-14T20:30:32\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-14T21:30:32\",\r\
+                    \n      \"token\" : \"RH_PVh1V1mrqB\"\r\n    }, {\r\n      \"\
                     name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
-                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-25T20:18:06\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-25T21:18:06\",\r\
-                    \n      \"token\" : \"RH_gSIVfidbwm\"\r\n    }, {\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-13T20:30:32\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-13T21:30:32\",\r\
+                    \n      \"token\" : \"RH_rZRYidxNsZ\"\r\n    }, {\r\n      \"\
                     name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
-                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-24T20:18:06\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-24T21:18:06\",\r\
-                    \n      \"token\" : \"RH_4QagpykCj5\"\r\n    }, {\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-12T20:30:32\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-12T21:30:32\",\r\
+                    \n      \"token\" : \"RH_liS8I5fp5K\"\r\n    }, {\r\n      \"\
                     name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
-                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-23T20:18:06\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-23T21:18:06\",\r\
-                    \n      \"token\" : \"RH_mchI4WnMds\"\r\n    }, {\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-11T20:30:32\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-11T21:30:32\",\r\
+                    \n      \"token\" : \"RH_k9sB5eut41\"\r\n    }, {\r\n      \"\
                     name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
-                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-22T20:18:06\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-22T21:18:06\",\r\
-                    \n      \"token\" : \"RH_DJbGgtJUUY\"\r\n    }, {\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-10T20:30:32\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-10T21:30:32\",\r\
+                    \n      \"token\" : \"RH_bghqBVCWZq\"\r\n    }, {\r\n      \"\
                     name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
-                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-21T20:18:06\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-21T21:18:06\",\r\
-                    \n      \"token\" : \"RH_m6y0T8b9vp\"\r\n    }, {\r\n      \"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-09T20:30:32\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-09T21:30:32\",\r\
+                    \n      \"token\" : \"RH_xvWNhqa07i\"\r\n    }, {\r\n      \"\
                     name\" : \"65W충전기\",\r\n      \"status\" : \"반납\",\r\n      \"\
-                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-20T20:18:06\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-20T21:18:06\",\r\
-                    \n      \"token\" : \"RH_NXF2Duzscr\"\r\n    } ],\r\n    \"page\"\
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-08T20:30:32\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-08T21:30:32\",\r\
+                    \n      \"token\" : \"RH_TOTZay3X3Q\"\r\n    } ],\r\n    \"page\"\
                     \ : {\r\n      \"size\" : 10,\r\n      \"number\" : 0,\r\n   \
                     \   \"totalElements\" : 20,\r\n      \"totalPages\" : 2\r\n  \
                     \  }\r\n  }\r\n}"
@@ -881,13 +881,13 @@ paths:
                   value: "{\r\n  \"success\" : true,\r\n  \"message\" : \"요청이 성공적으\
                     로 처리되었습니다.\",\r\n  \"data\" : {\r\n    \"rentals\" : [ {\r\n \
                     \     \"name\" : \"65W충전기\",\r\n      \"status\" : \"대여중\",\r\n\
-                    \      \"rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-28T21:18:05\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-28T22:18:05\",\r\
-                    \n      \"token\" : \"RH_C4SeqTZYsR\"\r\n    }, {\r\n      \"\
+                    \      \"rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-16T21:30:31\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-16T22:30:31\",\r\
+                    \n      \"token\" : \"RH_AMeXSnIKca\"\r\n    }, {\r\n      \"\
                     name\" : \"65W충전기\",\r\n      \"status\" : \"대여중\",\r\n      \"\
-                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-03-28T21:18:05\"\
-                    ,\r\n      \"expectedReturnTime\" : \"2025-03-28T22:18:05\",\r\
-                    \n      \"token\" : \"RH_RpJ85rCOYd\"\r\n    } ]\r\n  }\r\n}"
+                    rentalTimeHour\" : 1,\r\n      \"startTime\" : \"2025-05-16T21:30:31\"\
+                    ,\r\n      \"expectedReturnTime\" : \"2025-05-16T22:30:31\",\r\
+                    \n      \"token\" : \"RH_Rmy2ef9GUy\"\r\n    } ]\r\n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /v1/users/me/stations/bookmark:
