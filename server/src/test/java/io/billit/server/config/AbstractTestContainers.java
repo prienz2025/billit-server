@@ -24,15 +24,13 @@ public abstract class AbstractTestContainers {
         .withDatabaseName("test");
 
     redisContainer = new RedisContainer(DockerImageName.parse("redis:latest"))
-        .withExposedPorts(6379)
-        .withCommand("redis-server", "--requirepass", "testpassword");
+        .withExposedPorts(6379);
 
     mysqlContainer.start();
     redisContainer.start();
 
     System.setProperty("REDIS_HOST", redisContainer.getHost());
     System.setProperty("REDIS_PORT", String.valueOf(redisContainer.getFirstMappedPort()));
-    System.setProperty("REDIS_PASSWORD", "testpassword");
   }
 
 }

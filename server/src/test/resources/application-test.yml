@@ -35,7 +35,6 @@ spring:
     redis:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
-      password: ${REDIS_PASSWORD:testpassword}
 
   cloud:
     aws:
@@ -56,6 +55,3 @@ bannabe:
   payment:
     secret-key: asg8y34tacvhbalsfguhafg==
     api-key: idfbhzuh3498tyzlxjb
-
-encrypt:
-  password: a;sldfhz9x8bvy3tqotazosd8fgvq345tyosd7
