@@ -7,8 +7,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ENC(QL9P55yeqSGSRPeFFsm8HGqiZyTEzd/XWrOx0LrHmV8vsbKwI9ruvBd665et6qQMF9irqA9941qqeOBlzN+LeQ==)
-    password: ENC(wdUvFe2rxidFUvpBc2Nv/i8gu3dY1fCSMoUTSLYedrrdQwN13ffsEwp2N7IuMNUJa3ZcNqtKdWvBpKmGDMC68g==)
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
@@ -23,26 +23,22 @@ spring:
       region:
         static: ap-northeast-2
       s3:
-        bucket: ENC(rCp++HbH119YE4QzRIoPOonW6j+LBb4pBt/vXfhL8SDi2AKq0hHvP52u/K23qY6evmDzKnw34K9TPEAOBZRtqA==)
+        bucket: ${S3_BUCKET_NAME}
       credentials:
-        access-key: ENC(/aDHbQDVYIm4zT9BEODxZPf6zg59qRzBmdpwL4QVF/OOFTJ0kRBH0yoIGCKefn6Ta7djOZt0YloPQmUbgZwMtQ==)
-        secret-key: ENC(ELwfo1GKsusD3LJpwPPUZfI0tGtwMHGAn+CnUGhzPNOw74r7zSHKZwI605spkm/NfhIdKe5HKeI68hRKQVpC67wM3lhZ8t9rZa8WuOEK1VE=)
+        access-key: ${S3_ACCESS_KEY}
+        secret-key: ${S3_SECRET_KEY}
 
   jpa:
     open-in-view: false
 
-jasypt:
-  encryptor:
-    bean: jasyptEncryptor
-
 jwt:
-  secret: ENC(Td1Bn+vflHJE40VjINaGpgisHP0MBdY5oQ+aZdJy9uWLNlQinfTG983inwWWKBP5lfRdmVIz768CU6DIt7oFHJWFP8r1p3JMHhkwb1UhaXriwRmrDRNZ+u3cqnYRvH3LqEY1hI7ANQlIU6Wxt5mH8vPsagzBVUPW6pcAThVMyDY=)
+  secret: ${JWT_SECRET}
 
 bannabe:
-  default-profile-image: ENC(GKEZ+q1NesSCsYhn5m/2VAxsHhtA7EWsn4Bj4B57MKRCMi/Ag6G0BkfxW3QPd0TF9YYRC+8sKek4zY07/z1ea0dKXhhiLGRn3du/WtiqcMhwuWaI8fHlHkimD+dE/9reDRIjzJ9mfQC2BfaHS2rP7XtmFzS3XdJnXgO1omcqkNw=)
+  default-profile-image: ${DEFAULT_PROFILE_IMAGE_URL}
   payment:
-    api-key: ENC(wFicTPhVO8Jezk+5Lfn7ECuJnIrZ1nSlmxz1i3M3TNiah+EsnHjm+ALgx49jQjXlLjOvYAm8xkx4UYuXMgs2vIbafOQfyttgt2CJz5KmAcw=)
-    secret-key: ENC(qIwNHKFFiZZAk3hCSfXG3U164hXF1mNj7Ln8oVY7JKvxuyLIqwduosF7RIIGHDrbj4SxsN2wtbLXqd5wp6FqZoAYmzVG9BiLfKFi2i6ymUM=)
+    api-key: ${PAYMENT_API_KEY}
+    secret-key: ${PAYMENT_SECRET_KEY}
 
 encrypt:
   password: ${JASYPT_PASSWORD}

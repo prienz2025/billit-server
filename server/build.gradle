@@ -71,7 +71,6 @@ dependencies {
     // security
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'
 
     // aws
     implementation 'io.awspring.cloud:spring-cloud-aws-starter-s3:3.3.0'
